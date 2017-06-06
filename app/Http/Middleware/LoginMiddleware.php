@@ -40,7 +40,8 @@ class LoginMiddleware
         } else {
             if(Auth::attempt(['username' => $request->get('username'),
                            'password' => $request->get('password'),
-                           'project' => $request->get('project')],$request->get('remember'))) {
+                           'project' => $request->get('project')],
+                           $request->get('remember'))) {
                 return $next($request);
             } else {
                 return redirect('/login')->withInput()->with('message', 'Incorrect!! Please login again.');

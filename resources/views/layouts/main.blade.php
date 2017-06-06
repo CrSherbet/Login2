@@ -176,23 +176,39 @@
             <div class="row">
             @foreach($infoHero as $hero)
                 <div class="col-lg-3 col-md-6">
-                 
                     <div class="panel
                      panel-primary">
                     
                         <div class="panel-heading">
                             <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-comments fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
+                                <div class="col-xs-9 text-left">
                                     <div class="huge">{{ $hero['HeroName'] }} </div>
                                     <div>{{ $hero['Role'] }} </div>
                                 </div>
+                                <!--<a href="{{url('/delHero',$hero['HeroName'])}}"> -->
+                                <button class="close" type="button" data-toggle="modal" data-target="#myModal">&times;</button>
+
+                                
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                    
+                                        <div class="modal-header">
+                                            Do you want to delete hero?
+                                        </div>
+                                        <div class="modal-footer">
+                                           <button type="button" class="btn btn-default">Yes</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+
                             </div>
                         </div>
                         
-                        <a href="#">
+                        <a href="{{url('/showDetail',$hero['HeroName'])}}">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
