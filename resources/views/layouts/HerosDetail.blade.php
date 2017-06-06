@@ -6,13 +6,14 @@
 @section('content')
 
     @foreach($infoHero as $hero)
-   <div class="col-lg-4">
+   <div class="col-lg-5">
         <div class="panel panel-default">
             <div class="panel-heading">
                <h2> {{ $hero ['HeroName'] }} </h2>
             </div>
-            
+         
             <div class="panel-body">
+                    <img src="../images/hero/{{ $hero ['HeroName'] }}.jpg"><br><br>
                     <p> Hero Name:  {{ $hero ['HeroName'] }} </p> 
                     <p> Real Name {{ $hero ['HeroRealName'] }}  </p>  
                     <p> Damage: {{ $hero ['Damage'] }} </p>  
