@@ -28,10 +28,6 @@ Route::get('/insertHero', function(){
 Route::post('/insertHero', 'WebController@insertHero');
 Route::get('/delHero/{name}', 'WebController@delHero');
 
-Route::get('/main#{id}', function($id){
-    echo $id;
-});
-
 Route::get('/showDetail/{name}', 'WebController@showDetail');
 Route::get('/editHero/{name}', 'WebController@showEditHeroForm');
 

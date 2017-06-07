@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
 @section('head')
+  <script type="text/javascript" src="../public/js/main.js"></script>
+    
 
 @section('content')
 
@@ -176,38 +178,19 @@
             <div class="row">
             @foreach($infoHero as $hero)
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel
-                     panel-primary">
-                    
+                    <div class="panel panel-primary">
                         <div class="panel-heading">
+                          <button class="close" type="button" data-toggle="modal" data-target="#myModal" onclick="setHeroName( '{{ $hero['HeroName'] }}' )">&times;</button>
+                          <!--<button class="close" type="button" onClick("sendValue('{{ $hero['HeroName'] }}')")>&times;</button>-->
+                        
                             <div class="row">
                                 <div class="col-xs-9 text-left">
                                     <div class="huge">{{ $hero['HeroName'] }} </div>
                                     <div>{{ $hero['Role'] }} </div>
                                 </div>
-                                <!--<a href="{{url('/delHero',$hero['HeroName'])}}"> -->
-                                <button class="close" type="button" data-toggle="modal" data-target="#myModal">&times;</button>
-
-                                
-                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                    
-                                        <div class="modal-header">
-                                            Do you want to delete hero?
-                                        </div>
-                                        <div class="modal-footer">
-                                           <button type="button" class="btn btn-default">Yes</button>
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.modal-dialog -->
                             </div>
-
-                            </div>
-                        </div>
                         
+                        </div>
                         <a href="{{url('/showDetail',$hero['HeroName'])}}">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
@@ -220,7 +203,22 @@
                      
                 </div>
                  @endforeach
-            </div>
+                 <!--Modal-->
+                   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" value="555">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header" >
+                                    <h2 >  Do you want to delete <span class="id_hero_name"></span>? </h2>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" onClick="delHero()">Yes</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Modal-->
            
                     </div>
                     <!-- /.panel .chat-panel -->
@@ -234,3 +232,5 @@
     </div>
 
     @stop
+
+     

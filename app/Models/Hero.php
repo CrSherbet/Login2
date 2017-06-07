@@ -23,5 +23,7 @@ class Hero extends Model implements AuthenticatableContract,
      */
     protected $table = 'hero';
 
+    public $timestamps = false;
+
    
 }
