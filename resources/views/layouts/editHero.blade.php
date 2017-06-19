@@ -1,4 +1,6 @@
 
+<!DOCTYPE html>
+<html lang="en">
 @extends('layouts.childMaster')
 
 @section('head')

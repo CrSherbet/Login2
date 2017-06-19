@@ -39,8 +39,8 @@ class LoginMiddleware
             return redirect('/main');
         } else {
             if(Auth::attempt(['username' => $request->get('username'),
-                           'password' => $request->get('password'),
-                           'project' => $request->get('project')],
+                           'password' => $request->get('password')],
+                        //    'project' => $request->get('project')],
                            $request->get('remember'))) {
                 return $next($request);
             } else {
